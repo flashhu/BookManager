@@ -36,12 +36,12 @@ router.post('/update', (req, res) => {
         if (r.code) {
             let where = {}
             where['reader_number'] = req.body.reader_number;
-            db.modify('reader', req.body, where, (err, r) => {
-                res.json(r);
+            db.modify('reader', req.body, where, (err, r2) => {
+                res.json(r2);
             })
         } else {
-            db.add('reader', req.body, (err, r) => {
-                res.json(r);
+            db.add('reader', req.body, (err, r3) => {
+                res.json(r3);
             })
         }
     })
@@ -50,8 +50,8 @@ router.post('/update', (req, res) => {
 router.post('/delete', (req, res) => {
     reader.vertifyReader(req.body, (cb, r) => {
         if (r.code) {
-            db.del('reader', req.body, (err, r) => {
-                res.json(r);
+            db.del('reader', req.body, (err, r2) => {
+                res.json(r2);
             })
         } else {
             res.json(r);

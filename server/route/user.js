@@ -15,8 +15,8 @@ router.post('/register', (req, res)=>{
         if(r.code) {
             res.json({code: 0, msg:'用户已存在！'});
         }else {
-            db.add('manager', tmp, (err, r)=>{
-                res.json(r);
+            db.add('manager', tmp, (err, r2)=>{
+                res.json(r2);
             })
         }
     })
@@ -29,9 +29,9 @@ router.post('/login', (req, res)=>{
             res.json({ code: 0, msg: '用户不存在！' });
         } else {
             let where = `where manager_id='${req.body.manager_id}' and password='${req.body.password}'`;
-            db.select('manager', where, '', '', (err, r)=>{
-                if (r.rows.length > 0) {
-                    res.status(200).json({ code: 1, msg: '登录成功！', user: r.rows[0] });
+            db.select('manager', where, '', '', (err, r2)=>{
+                if (r2.rows.length > 0) {
+                    res.status(200).json({ code: 1, msg: '登录成功！', user: r2.rows[0] });
                 }else {
                     res.status(200).json({ code: 0, msg: '用户名或密码不正确！' });
                 }

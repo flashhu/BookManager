@@ -4,6 +4,10 @@ let conf = {
     database: 'library_db',
     user: 'bookdbuser',
     password: 'zxcf2jkl',
+    dateStrings: [
+        'DATE',
+        'DATETIME'
+    ]
 };
 
 module.exports = conf;

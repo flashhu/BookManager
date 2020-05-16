@@ -12,7 +12,7 @@ export const CATE_TYPE = [
 export const DEPT_TYPE = ['教育学院', '人文学院', '理学院', '外国语学院', '医学院', '美术学院', '信息科学与工程学院']
 
 export const MENU_MAIN = [
-  { title: '借书还书', icon: 'home', path: '/service' },
-  { title:'图书管理', icon:'book',   path: '/book' },
-  { title: '人员管理', icon:'team', path: '/user' }
+  { title:'借书还书', icon:'home', path: '/service' },
+  { title:'图书管理', icon:'book', path: '/book' },
+  { title:'人员管理', icon:'team', path: '/user' }
 ]

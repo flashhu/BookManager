@@ -22,7 +22,7 @@ class App extends Component{
                 <Switch>
                   <Route path='/user' exact component={loadable(() => import('./app/user'))} />
                   <Route path='/book' exact component={loadable(() => import('./app/book'))} />
-                  {/* <Route path='/service' exact component={loadable(() => import('./app/service'))} /> */}
+                  <Route path='/service' exact component={loadable(() => import('./app/service'))} />
                 </Switch>
               </NavWrapper>
             )}/>

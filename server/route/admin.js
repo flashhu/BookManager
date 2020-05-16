@@ -33,14 +33,14 @@ router.post('/update', (req, res) => {
         if (r.code) {
             let where = {}
             where['manager_id'] = req.body.manager_id;
-            db.modify('manager', req.body, where, (err, r) => {
-                res.json(r);
+            db.modify('manager', req.body, where, (err, r2) => {
+                res.json(r2);
             })
         } else {
             //密码默认123456
             req.body['password'] = genPassword('123456');
-            db.add('manager', req.body, (err, r) => {
-                res.json(r);
+            db.add('manager', req.body, (err, r3) => {
+                res.json(r3);
             })
         }
     })
@@ -49,8 +49,8 @@ router.post('/update', (req, res) => {
 router.post('/delete', (req, res) => {
     user.vertifyUser(req.body, (cb, r) => {
         if (r.code) {
-            db.del('manager', req.body, (err, r) => {
-                res.json(r);
+            db.del('manager', req.body, (err, r2) => {
+                res.json(r2);
             })
         } else {
             res.json(r);

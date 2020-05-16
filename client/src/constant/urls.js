@@ -21,3 +21,5 @@ export const API_DATA_BOOK = API_SERVER + '/book/data';
 export const API_SEARCH_BOOK = API_SERVER + '/book/search';
 export const API_UPDATE_BOOK = API_SERVER + '/book/update';
 export const API_DELETE_BOOK = API_SERVER + '/book/delete';
+export const API_BORROW_BOOK = API_SERVER + '/book/borrow';
+export const API_RETURN_BOOK = API_SERVER + '/book/return';

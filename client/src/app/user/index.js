@@ -14,7 +14,7 @@ const { TabPane } = Tabs;
 
 @inject('userStore')
 @observer
-class StaffList extends Component {
+class UserList extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -382,4 +382,4 @@ class StaffList extends Component {
   }
 }
 
-export default StaffList;
+export default UserList;
