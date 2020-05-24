@@ -145,6 +145,7 @@ class BookInfoDialog extends Component {
                                 <Input
                                     placeholder=""
                                     allowClear
+                                    disabled={this.props.book ? true : false}
                                 />)}
                         </Form.Item>
                         <Form.Item label="类别">

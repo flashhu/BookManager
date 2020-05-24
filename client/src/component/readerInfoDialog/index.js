@@ -118,7 +118,6 @@ class ReaderInfoDialog extends Component {
             labelCol: { span: 5 },
             wrapperCol: { span: 16 },
         };
-
         return (
             <Modal
                 title="编辑读者信息"
@@ -145,11 +144,12 @@ class ReaderInfoDialog extends Component {
                                 <Input
                                     placeholder=""
                                     allowClear
+                                    disabled={this.props.reader ? true : false}
                                 />)}
                         </Form.Item>
                         <Form.Item label="姓名">
                             {getFieldDecorator('name', {
-                                rules: [{ required: true, message: '请输入书名！' }],
+                                rules: [{ required: true, message: '请输入姓名！' }],
                                 initialValue: ''
                             })(
                                 <Input
@@ -159,7 +159,7 @@ class ReaderInfoDialog extends Component {
                         </Form.Item>
                         <Form.Item label="性别">
                             {getFieldDecorator('gender', {
-                                rules: [{ required: true, message: '请输入书名！' }],
+                                rules: [{ required: true, message: '请选择性别！' }],
                                 initialValue: ''
                             })(
                                 <Radio.Group>

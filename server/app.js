@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-const port = 8080;
+const port = 8070;
 
 app.use(cors());  /* 解决跨域问题 */
 app.use(bodyParser.urlencoded({ extended: false }));

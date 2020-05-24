@@ -22,7 +22,8 @@ class UserList extends Component {
       showReaderBox: false,
       adminList: [],
       readerList: [],
-      editItem: null,
+      editAdmin: null,
+      editReader: null,
       loading: true
     }
   }
@@ -111,7 +112,7 @@ class UserList extends Component {
 
     this.setState({
       showAdminBox: true,
-      editItem: item
+      editAdmin: item
     })
   }
 
@@ -122,7 +123,7 @@ class UserList extends Component {
 
     this.setState({
       showReaderBox: true,
-      editItem: item
+      editReader: item
     })
   }
 
@@ -132,7 +133,7 @@ class UserList extends Component {
       if (r.data.code) {
         this.allAdmin = r.data.rows; 
         this.setState({
-          showInfoBox: false,
+          showAdminBox: false,
           adminList: r.data.rows,
           loading: false
         })
@@ -151,7 +152,7 @@ class UserList extends Component {
       if (r.data.code) {
         this.allReader = r.data.rows;
         this.setState({
-          showInfoBox: false,
+          showReaderBox: false,
           readerList: r.data.rows,
           loading: false
         })
@@ -178,7 +179,7 @@ class UserList extends Component {
           data[i] = admin;
           this.setState({
             adminList: data,
-            showInfoBox: false
+            showAdminBox: false
           });
           break;
         }
@@ -197,7 +198,7 @@ class UserList extends Component {
           data[i] = reader;
           this.setState({
             readerList: data,
-            showInfoBox: false
+            showReaderBox: false
           });
           break;
         }
@@ -270,9 +271,9 @@ class UserList extends Component {
   }
 
   render() {
-    const { showAdminBox, showReaderBox, editItem, readerList, adminList } = this.state;
+    const { showAdminBox, showReaderBox, editAdmin, editReader, readerList, adminList } = this.state;
     const seachBar = {width:160, marginTop:10, marginRight:5};
-     
+
     if(!this.currUser){
       return <Redirect to='/login' />
     }
@@ -365,14 +366,14 @@ class UserList extends Component {
 
         <AdminInfoDialog
           visible={showAdminBox}
-          admin={editItem}
+          admin={editAdmin}
           afterClose={() => this.setState({ showAdminBox: false })}
           onDialogConfirm={this.handleAdminInfoDialogClose}
         />
 
         <ReaderInfoDialog
           visible={showReaderBox}
-          reader={editItem}
+          reader={editReader}
           afterClose={() => this.setState({ showReaderBox: false })}
           onDialogConfirm={this.handleReaderInfoDialogClose}
         />

@@ -76,6 +76,7 @@ class Login extends Component {
                 </Button>
               </Form.Item>
             </Form>
+            <p>可用账户:2020101 密码:a</p>
           </div>
         </div>
       </div>

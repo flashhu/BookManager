@@ -47,13 +47,15 @@ router.post('/update', (req, res) => {
 })
 
 router.post('/delete', (req, res) => {
-    user.vertifyUser(req.body, (cb, r) => {
-        if (r.code) {
-            db.del('manager', req.body, (err, r2) => {
-                res.json(r2);
-            })
-        } else {
-            res.json(r);
+    db.del('manager', req.body, (err, r) => {
+        if(r.code){
+            if(r.rows.affectedRows > 0) {
+                res.json(r);
+            }else {
+                res.json({code: 0, msg:'该管理员不存在！'});
+            }
+        }else {
+            res.json(r)
         }
     })
 })

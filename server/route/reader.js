@@ -48,15 +48,29 @@ router.post('/update', (req, res) => {
 })
 
 router.post('/delete', (req, res) => {
-    reader.vertifyReader(req.body, (cb, r) => {
-        if (r.code) {
-            db.del('reader', req.body, (err, r2) => {
-                res.json(r2);
-            })
-        } else {
-            res.json(r);
+    let wheresql = `where reader_number=${req.body.reader_number}`;
+    db.select('borrow_book', wheresql, '', '', (err, r1) => {
+        if(r1.code) {
+            if(r1.rows.length > 0) {
+                res.json({ code: 0, msg: '该读者存在借还书记录！' });
+            }else {
+                db.del('reader', req.body, (err, r2) => {
+                    if (r2.code) {
+                        if (r2.rows.affectedRows > 0) {
+                            res.json(r2);
+                        } else {
+                            res.json({ code: 0, msg: '该读者不存在！' });
+                        }
+                    } else {
+                        res.json(r);
+                    }
+                })
+            }
+        }else {
+            res.json(r1);
         }
     })
+
 })
 
 module.exports = router;

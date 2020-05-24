@@ -1,4 +1,5 @@
-const API_SERVER = 'http://localhost:8080';
+const API_SERVER = 'http://localhost:8070';
+// const API_SERVER = 'http://www.flashhu.site:8070';
 
 // user
 export const API_USER_REGISTER = API_SERVER + '/user/register';

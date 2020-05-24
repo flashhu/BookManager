@@ -124,7 +124,6 @@ class AdminInfoDialog extends Component {
             labelCol: { span: 5 },
             wrapperCol: { span: 16 },
         };
-
         return (
             <Modal
                 title="编辑管理员信息"
@@ -151,6 +150,7 @@ class AdminInfoDialog extends Component {
                                 <Input
                                     placeholder=""
                                     allowClear
+                                    disabled={this.props.admin ? true: false}
                                 />)}
                         </Form.Item>
                         <Form.Item label="姓名">
@@ -187,6 +187,11 @@ class AdminInfoDialog extends Component {
                                     onClick={this.handleDelete}
                                     style={{ width: 250 }}>{this.state.deleteConfirm ? '点击确认删除 ' + this.state.admin.name : '删除'}</Button>
                             </Form.Item>
+                        }
+
+                        {
+                            !this.props.admin && 
+                            <p style={{textAlign:'center'}}>新增管理员密码默认为 123456</p>
                         }
 
                     </Form>

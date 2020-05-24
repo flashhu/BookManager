@@ -216,7 +216,7 @@ class BookList extends Component {
             dataSource={bookList}
             columns={this.columns}
             rowKey={item => item.book_number + '*'}
-            pagination={{ pageSize: 7 }}
+            pagination={{ pageSize: 8 }}
             style={{ clear: 'both', marginTop: 10 }}
           />
         </Spin>
